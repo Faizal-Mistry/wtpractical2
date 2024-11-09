@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registered Users</h1>
+        <ul id="userList"></ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userList = document.getElementById('userList');
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            users.forEach(user => {
+                const li = document.createElement('li');
+                li.textContent = `Name: ${user.name}, Contact: ${user.contact}, Address: ${user.address}, College: ${user.college}, Username: ${user.username},  Email: ${user.email}`;
+                userList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
